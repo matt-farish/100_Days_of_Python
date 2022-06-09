@@ -23,7 +23,7 @@ if choice == 2:
         password += random.choice(symbols)
     for i in range(1, nr_numbers + 1):
         password += random.choice(numbers)
-    print(password)
+    print(f"Your generated password is: {password}")
 elif choice == 1:
     #Hard Level - Order of characters randomised:
     #e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
@@ -41,6 +41,6 @@ elif choice == 1:
     for character in password_list:
         password += character
 
-    print(password)
+    print(f"Your generated password is: {password}")
 else:
     print("Invalid selection.")
