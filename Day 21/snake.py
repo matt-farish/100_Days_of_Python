@@ -28,9 +28,11 @@ class Snake:
         self.segments.append(new_segment)
 
     def extend(self):
+        """Axtends the snake by adding a segment to the end of the snake."""
         self.add_segment(self.segments[-1].position())
 
     def move(self):
+        """Sets movement of the snake to forward. Head maintains location whilst proceeding segments follow the head."""
         for seg_num in range(len(self.segments) - 1, 0, -1):
             new_x = self.segments[seg_num - 1].xcor()
             new_y = self.segments[seg_num - 1].ycor()
@@ -38,18 +40,22 @@ class Snake:
         self.head.forward(MOVE_DISTANCE)
 
     def up(self):
+        """Changes the heading of the snake to 90°"""
         if self.head.heading() != DOWN:
             self.head.setheading(UP)
 
     def down(self):
+        """Changes the heading of the snake to 270°"""
         if self.head.heading() != UP:
             self.head.setheading(DOWN)
 
     def left(self):
+        """Changes the heading of the snake to 180°"""
         if self.head.heading() != RIGHT:
             self.head.setheading(LEFT)
 
     def right(self):
+        """Changes the heading of the snake to 0°"""
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
     
