@@ -13,6 +13,7 @@ class Scoreboard(Turtle):
 
 
     def update_scoreboard(self):
+        """Creates a scoreboard with scores for both players. Clears old score on every call."""
         self.clear()
         self.goto(-100, 200)
         self.write(self.l_score, align="center", font=("Courier", 80, "normal"))
@@ -20,9 +21,11 @@ class Scoreboard(Turtle):
         self.write(self.r_score, align="center", font=("Courier", 80, "normal"))
 
     def l_point(self):
+        """Adds a point to the left player's score."""
         self.l_score += 1
         self.update_scoreboard()
     
     def r_point(self):
+        """Adds a point the right player's score."""
         self.r_score += 1
         self.update_scoreboard()

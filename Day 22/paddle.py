@@ -15,11 +15,13 @@ class Paddle(Turtle):
         self.goto(position)
 
     def go_up(self):
+        """Sets a new y coordinate, and moves the paddle up, as long as the new y value is less than 250."""
         new_y = self.ycor() + 20
         if new_y < 250:
             self.goto(self.xcor(), new_y)
 
     def go_down(self):
+        """Sets a new y coordinate, and moves the paddle down, as long as the new y value is more than -250."""
         new_y = self.ycor() - 20
         if new_y > -250:
             self.goto(self.xcor(), new_y)
