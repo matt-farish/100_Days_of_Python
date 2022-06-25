@@ -19,7 +19,7 @@ class Scoreboard(Turtle):
 
     def increase_score(self):
         """Increases the score by 1, clears the old scoreboard and updates with the new score."""
-        self.score += 1
+        self.score += 1 
         self.clear()
         self.update_scoreboard()
 
