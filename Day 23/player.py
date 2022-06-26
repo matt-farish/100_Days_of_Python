@@ -15,13 +15,16 @@ class Player(Turtle):
         self.setheading(90)
 
     def is_at_finish_line(self):
+        """Checks to see if the player object is at or past the finish line."""
         if self.ycor() > FINISH_LINE_Y:
             return True
         else:
             return False
 
     def move(self):
+        """Moves the player forward."""
         self.fd(MOVE_DISTANCE)
 
     def reset(self):
+        """Sets the player back to the starting position."""
         self.goto(STARTING_POSITION)
