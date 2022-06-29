@@ -1,5 +1,5 @@
 # Day 26 of Udemy's 100 Days of Python programming course
-
+import random
 # numbers = [1, 2, 3]
 # new_numbers = [n + 1 for n in numbers]
 
@@ -23,3 +23,9 @@
 # result = [int(num) for num in file1_contents if num in file2_contents]
 # print(result)
 
+names = ["Alex", "Beth", "Caroline", "Dave", "Emma", "Freddie"]
+
+student_scores = {student:random.randint(1, 100) for student in names}
+print(student_scores)
+
+passed_students = {student:score for (student, score) in student_scores.items() if score >= 60}
