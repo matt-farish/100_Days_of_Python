@@ -1,11 +1,13 @@
-# Day 28 of Udemy's 100 Days of Python programming course
+# Day 29 of Udemy's 100 Days of Python programming course
 from random import randint, choice, shuffle
 from tkinter import *
 from tkinter import messagebox
 import pyperclip
 FONT_NAME = "Helvetica"
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
+
 def generate_password():
+    """Generates a password consisting of random letters, symbols and numbers."""
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 
     't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 
     'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -20,24 +22,30 @@ def generate_password():
     shuffle(password_list)
 
     password = "".join(password_list)
-
+# Insert the generated password into the password entry field.
     password_entry.insert(0, password)
+# Copy the password to the clipboard.
     pyperclip.copy(password)
 # ---------------------------- SAVE PASSWORD ------------------------------- #
+
 def save():
+    """Saves users inputs to a text file."""
+# Takes the inputs from the entry fields.
     website = website_entry.get()
     email = email_username_entry.get()
     password = password_entry.get()
 
+# If the website or password fields have nothing in them, display a warning to the user.
     if len(website) == 0 or len(password) == 0:
-
         messagebox.showinfo(title = "Error!", message = "You have left an area blank!")
     else:
-
+# If all fields are filled out, write the values to a file.
+        # Prompt the user to confirm that their entries are correct.
         is_ok = messagebox.askokcancel(title = website, message = f"These are the details entered: \nEmail: {email}" 
         f"\nPassword: {password} \nIs it okay to save?")
+        #
         if is_ok:
-
+        # If the user confirms their entry, write the data to a text file and then remove the data from the entry fields.
             with open("data.txt", "a") as file:
                 file.write(f"{website} | {email} | {password}" + "\n")
             website_entry.delete(0, END)
@@ -46,6 +54,7 @@ def save():
     
 
 # ---------------------------- UI SETUP ------------------------------- #
+
 window = Tk()
 window.title("Password Manager")
 window.config(padx = 20, pady = 20)
@@ -80,7 +89,6 @@ generate_password_button.grid(row = 3, column = 2)
 
 add_button = Button(text = "Add", width = 38, relief = "groove", command = save)
 add_button.grid(row = 4, column = 1, columnspan = 2)
-
 
 
 window.mainloop()
