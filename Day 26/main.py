@@ -17,9 +17,11 @@ def generate_phonetic():
     try:
         # Answer is equal to the value in the phonetic dictionary, using the letter as the key, for each letter in the word.
         answer = [phonetic_dict[letter] for letter in word]
+    # In the case of a key error (if a user enters numbers instead of a word), provide feedback and prompt again.
     except KeyError:
         print("Please use letters only.")
         generate_phonetic()
+    # In the case that the user enters a valid word, print the phonetic answer.
     else:
         print(answer)
 
