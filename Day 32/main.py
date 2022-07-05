@@ -21,6 +21,6 @@ if today_tuple in birthdays:
         connection.login(user = my_email, password = password)
         connection.sendmail(
             from_addr = my_email,
-            to_addrs = my_email,
+            to_addrs = person["email"],
             msg = f"Subject:Happy Birthday!\n\n{letter}"
         )
