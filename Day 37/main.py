@@ -9,8 +9,8 @@ GRAPH_ID = "graph1"
 pixela_endpoint = "https://pixe.la/v1/users"
 
 user_params = {
-    "token": "kqcPojNk8Emxdr&P",
-    "username": "mattfarish",
+    "token": "TOKEN",
+    "username": "USERNAME",
     "agreeTermsOfService": "yes",
     "notMinor": "yes"
 }
