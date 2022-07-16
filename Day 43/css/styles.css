@@ -1,0 +1,30 @@
+body {
+    background-color: #3AB4F2;
+}
+hr {
+    border-style: none;
+    border-top-style: dotted;
+    border-color: lightgray;
+    border-width: 5px;
+    width: 5%;
+}
+
+/*
+img {
+    width: 200px;
+    height: 200px;
+}
+*/
+
+.the_rock {
+    width: 200px;
+    height: 200px;
+}
+
+h1, h2, h3 {
+    color: #F6F6F6;
+}
+
+#heading{
+    color: #F6F6F6;
+}
