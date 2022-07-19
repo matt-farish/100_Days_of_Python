@@ -5,33 +5,75 @@ body {
 }
 
 h1{
-    width: 10%;
-    margin: 0 auto;
+    font-size: 5.625em;
     font-family: 'Mukta', sans-serif;
+    margin: 50px auto 0 auto;
+    color: #FEF9EF;
+
+}
+
+hr{
+    border-style: none;
+    border-top-style: dotted;
+    border-color: #FEE440;
+    border-width: 5px;
+    width: 5%;
+    margin: 30px auto auto auto;
+}
+
+h2{
+    color: #FF865E;
+    font-weight: normal;
+}
+
+h3 {
+    color: #FF865E;
+}
+
+a {
+    color: #FF865E;
+    font-family: 'Merriweather', serif;
+    margin: 10px 20px;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #A2D2FF;
+}
+
+p {
+    line-height: 2;
 }
 
 
 /* Class selectors */
 .top-container {
-    background-color: #93B5C6;
+    background-color: #A2D2FF;
     position: relative;
     padding-top: 100px;
 }
 
 .middle-container {
-    height: 200px;
-    width: 200px;
-    background-color: red;
+    margin: 100px 0;
 }
 
 .bottom-container {
-    height: 200px;
-    width: 200px;
-    background-color: blue;
+    background-color: #FEE440;
+    padding: 50px 0 20px;
 }
 
 .pro {
     text-decoration: underline;
+}
+
+.intro {
+    width: 30%;
+    margin: auto;
+}
+
+.programmer-text {
+    color: #FEF9EF;
+    font-size: 2.5rem;
 }
 
 .bottom-cloud {
@@ -46,4 +88,68 @@ h1{
     top: 50px;
 
 }
+
+.html-row {
+    width: 50%;
+    margin: 150px auto 120px auto;
+    text-align: left;
+
+    
+}
+
+.python-row {
+    width: 50%;
+    margin: 50px auto 120px auto;
+    text-align: left;
+
+}
+
+.python-logo {
+    width: 20%;
+    float: left;
+    margin: 30px;
+}
+
+.html-logo {
+    width: 20%;
+    float: right;
+    margin: 30px;
+}
+
+.contact-me {
+    margin: 100px auto 100px auto;
+}
+
+
+.hr2 {
+    margin: 150px auto auto auto;
+}
+
+.btn {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: 'Merriweather', serif;
+    color: #ffffff;
+    font-size: 20px;
+    background: #FF865E;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    background: #A2D2FF;
+    text-decoration: none;
+  }
+
+  .contact-message {
+    width: 40%;
+    margin: 40px auto 40px auto;
+  }
+
+  .copyright {
+    color: #FF865E;
+    font-size: 0.75rem;
+    padding: 20px 0;
+  }
 
