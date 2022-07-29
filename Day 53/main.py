@@ -31,42 +31,32 @@ for link in links:
         url_list.append(href)
 
 all_address_elements = soup.select(".list-card-info address")
-all_addresses = [address.get_text().split(" | ")[-1] for address in all_address_elements]
+all_addresses = [address.get_text().split(" | ")[-1] for address in all_address_elements] 
 
-all_price_elements = soup.select(".list-card-heading")
-for element in all_price_elements:
-    print(element.select(".list-card-price")[0].contents)
+price_elements = soup.find_all(name="div", class_="list-card-price")
+all_prices = []
+for price in price_elements:
+    price = price.getText().split()[0].replace("/mo", "").replace("+", "")
+    all_prices.append(price)
 
-# all_prices = []
-# for element in all_price_elements:
-#     try:
-#         price = element.select(".list-card-price")[0].contents[0]
-#     except IndexError:
-#         print("Multiple listings for the card")
-#         price = element.select(".list-card-details li")[0].contents[0]
-#     finally:
-#         all_prices.append(price)
+driver_path = Service("C:\Development\chromedriver.exe")
+driver = webdriver.Chrome(service = driver_path)
 
+for i in range(len(url_list)):
+    driver.get(FORM_URL)
 
+    sleep(3)
 
-# driver_path = Service("C:\Development\chromedriver.exe")
-# driver = webdriver.Chrome(service = driver_path)
-
-# for i in range(len(url_list)):
-#     driver.get(FORM_URL)
-
-#     sleep(3)
-
-#     address = driver.find_element(By.XPATH, 
-#         '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')
-#     price = driver.find_element(By.XPATH,
-#         '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input')
-#     link = driver.find_element(By.XPATH, 
-#         '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input')
-#     submit_button = driver.find_element(By.XPATH, 
-#         '//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div/span')
+    address = driver.find_element(By.XPATH, 
+        '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')
+    price = driver.find_element(By.XPATH,
+        '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input')
+    link = driver.find_element(By.XPATH, 
+        '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input')
+    submit_button = driver.find_element(By.XPATH, 
+        '//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div/span')
     
-#     address.send_keys(all_addresses[i])
-#     price.send_keys(all_prices[i])
-#     link.send_keys(url_list[i])
-#     submit_button.click()
+    address.send_keys(all_addresses[i])
+    price.send_keys(all_prices[i])
+    link.send_keys(url_list[i])
+    submit_button.click()
