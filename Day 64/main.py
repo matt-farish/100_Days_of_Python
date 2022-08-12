@@ -5,6 +5,9 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 import requests
+from decouple import config
+
+API_KEY = config("API_KEY")
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
@@ -28,8 +31,11 @@ class RateMovieForm(FlaskForm):
     review = StringField('Your review', validators = [DataRequired()])
     submit = SubmitField("Done")
 
-db.create_all()
+class AddMovieForm(FlaskForm):
+    title = StringField('Movie title')
+    submit = SubmitField("Add movie")
 
+db.create_all()
 
 @app.route("/")
 def home():
@@ -46,6 +52,24 @@ def edit():
         db.session.commit()
         return redirect(url_for('home'))
     return render_template("edit.html", movie = movie, form = form)
+
+@app.route("/delete")
+def delete():
+    movie_id = request.args.get('id')
+
+    movie_to_delete = Movie.query.get(movie_id)
+    db.session.delete(movie_to_delete)
+    db.session.commit()
+    return redirect(url_for('home'))
+
+@app.route("/add", methods = ["GET", "POST"])
+def add():
+    form = AddMovieForm()
+    if form.validate_on_submit():
+        title = form.title.data
+        print(title)
+        return redirect(url_for('add'))
+    return render_template("add.html", form = form)
 
 if __name__ == '__main__':
     app.run(debug=True)
