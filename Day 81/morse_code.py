@@ -1,44 +1,5 @@
 # Day 81 of Udemy's 100 Days of Python programming course
-
-# Letters to morse code dictionary.
-letters_to_mc = {'a': '.-',
-'b': '-...',
-'c': '-.-.',
-'d': '-..',
-'e': '.',
-'f': '..-.',
-'g': '--.',
-'h': '....',
-'i': '..',
-'j': '.---',
-'k': '-.-',
-'l': '.-..',
-'m': '--',
-'n': '-.',
-'o': '---',
-'p': '.--.',
-'q': '--.-',
-'r': '.-.',
-'s': '...',
-'t': '-',
-'u': '..-',
-'v': '...-',
-'w': '.--',
-'x': '-..-',
-'y': '-.--',
-'z': '--..',
-' ': '/',
-'1': '.----',
-'2': '..---',
-'3': '...--',
-'4': '....-',
-'5': '.....',
-'6': '-....',
-'7': '--...',
-'8': '---..',
-'9': '----.',
-'0': '-----'}
-
+from dictionary import letters_to_mc
 # Takes a phrase as a text input from the user.
 phrase = input("Enter the phrase you wish to translate: ").lower()
 
